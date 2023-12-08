@@ -31,8 +31,10 @@ prog = Programm("test.txt")
 if __name__ == "__main__":
 	while 1:
 		indexes_lst = prog.search_user_input()
+		file_data = prog.read_file()
 		if indexes_lst:
 			print("Your word was found in: " + ", ".join([str(index+1) for index in indexes_lst]) + " lines")
+			print("\n".join([file_data[index].replace('\n', '') for index in indexes_lst]))
 		else:
 			print("Your word was not found !!")
 		print()
